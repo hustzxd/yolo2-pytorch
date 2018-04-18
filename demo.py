@@ -74,11 +74,11 @@ for i, (image, im_data) in enumerate(pool.imap(
                              (int(1000. *
                                   float(im2show.shape[1]) / im2show.shape[0]),
                               1000))
-    cv2.imshow('test', im2show)
+    # cv2.imshow('test', im2show)
 
     total_time = t_total.toc()
     # wait_time = max(int(60 - total_time * 1000), 1)
-    cv2.waitKey(0)
+    # cv2.waitKey(0)
 
     if i % 1 == 0:
         format_str = 'frame: %d, ' \
