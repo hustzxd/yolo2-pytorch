@@ -8,10 +8,11 @@ import cfgs.config as cfg
 from layers.reorg.reorg_layer import ReorgLayer
 from utils.cython_bbox import bbox_ious, anchor_intersections
 from utils.cython_yolo import yolo_to_bbox
-from functools import partial
 
+from functools import partial
 from multiprocessing import Pool
 
+__all__ = ['Darknet19', 'darknet19']
 
 def _make_layers(in_channels, net_cfg):
     layers = []
@@ -294,6 +295,12 @@ class Darknet19(nn.Module):
                     param = param.permute(3, 2, 0, 1)
                 own_dict[key].copy_(param)
 
+
+def darknet19(pretrained=True, weights='models/darknet19.weights.npz'):
+    models = Darknet19()
+    if pretrained:
+        models.load_from_npz(weights)
+    return models
 
 if __name__ == '__main__':
     net = Darknet19()

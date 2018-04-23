@@ -23,8 +23,8 @@ args = parser.parse_args()
 # ------------
 imdb_name = cfg.imdb_test
 # trained_model = cfg.trained_model
-trained_model = os.path.join(cfg.train_output_dir,
-                             'darknet19_voc07trainval_exp3_73.h5')
+trained_model = os.path.join('models',
+                             'yolo-voc.weights.h5')
 output_dir = cfg.test_output_dir
 
 max_per_image = 300

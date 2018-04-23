@@ -62,7 +62,7 @@ for i, (image, im_data) in enumerate(pool.imap(
     iou_pred = iou_pred.data.cpu().numpy()
     prob_pred = prob_pred.data.cpu().numpy()
 
-    # print bbox_pred.shape, iou_pred.shape, prob_pred.shape
+    # print(bbox_pred.shape, iou_pred.shape, prob_pred.shape)
 
     bboxes, scores, cls_inds = yolo_utils.postprocess(
         bbox_pred, iou_pred, prob_pred, image.shape, cfg, thresh)
